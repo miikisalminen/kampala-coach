@@ -32,6 +32,12 @@ def update_to_db(sum, author):
 @client.event
     
 async def on_message(message):
+
+    if message.channel.id != 995774810179260456 and not message.author.bot and message.content[0] == '%':
+        response = "And who the fuck are you? Meet me at <#995774810179260456> and we'll talk."
+        await message.channel.send(response)
+        return
+
     found = False
     if message.content =="%register":
         for i in members:
@@ -67,7 +73,7 @@ async def on_message(message):
     if message.content =="%leaderboard":
         response = " :trophy: **KAMPALA ACTIVITY LEADERBOARD** :trophy: \n"
         for i in sorted(members, key=lambda x: x[1])[::-1]:
-            response+= "{0} : {1} :coin:\n".format(i[0], i[1])
+            response+= "{0} : {1} <:KAP:995930394715246642>\n".format(i[0], i[1])
 
         await message.channel.send(response)
 
