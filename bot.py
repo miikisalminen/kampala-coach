@@ -1,8 +1,10 @@
 import os
+from dotenv import dotenv_values
 import discord
 
 
-TOKEN = "OTk1NzQ0ODQ0NDM5ODk2MTE5.GbEc2c.ujENGy8NVBG41kIUYVaS3PFUmQjD5ShUBmGTPY"
+temp = dotenv_values(".env")
+TOKEN = temp["DISCORD_TOKEN"] #grab token from .env file instead
 
 members = []
 f = open("db.txt", "r")
